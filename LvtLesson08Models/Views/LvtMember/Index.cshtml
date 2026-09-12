@@ -1,0 +1,55 @@
+@model IEnumerable<LvtLesson08Models.Models.DataModels.LvtMember>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<div class="card p-3">
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary my-1">Thêm mới</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtUseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtEmail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.LvtUseName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.LvtPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.LvtFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.LvtEmail)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LvtMemberId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LvtMemberId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LvtMemberId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
