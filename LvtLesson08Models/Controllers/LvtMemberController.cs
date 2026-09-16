@@ -74,9 +74,23 @@ namespace LvtLesson08Models.Controllers
             return View();
         }
         // Get: Create Member
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
+        }
+        // Post: Create Member
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(LvtMember member)
+        {
+            if (ModelState.IsValid)
+            {
+                member.LvtMemberId = Guid.NewGuid().ToString();
+                _members.Add(member);
+                return RedirectToAction(nameof(Index));
+            }
+            return View();  
         }
     }
 }

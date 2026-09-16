@@ -1,0 +1,59 @@
+@model IEnumerable<LvtLesson08ModelsPart2.Models.LvtMember>
+
+@{
+    ViewData["Title"] = "Danh sach thanh vien";
+}
+
+<div class="card p-3">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+        <a asp-action="LvtCreate">Them Moi</a>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LvtUserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LvtPassWord)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LvtFullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LvtEmail)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => item.LvtUserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.LvtPassWord)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.LvtFullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.LvtEmail)
+                        </td>
+                        <td>
+                            <a asp-action="LvtEdit" asp-route-id="@item.LvtMemberId">Sua</a> |
+                            <a asp-action="LvtDetails" asp-route-id="@item.LvtMemberId">Xem chi tiet</a> |
+                            <a asp-action="LvtDelete" asp-route-id="@item.LvtMemberId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

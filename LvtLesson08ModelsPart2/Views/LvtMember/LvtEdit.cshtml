@@ -1,0 +1,58 @@
+@model LvtLesson08ModelsPart2.Models.LvtMember
+
+@{
+    ViewData["Title"] = "Sua thong tin sinh vien";
+}
+
+<form asp-action="LvtEdit" method="post">
+    <div class="card p-3">
+        <div class="card-header">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="LvtUserName" class="control-label"></label>
+                        <input asp-for="LvtUserName" class="form-control" />
+                        <span asp-validation-for="LvtUserName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="LvtPassWord" class="control-label"></label>
+                        <input asp-for="LvtPassWord" class="form-control" />
+                        <span asp-validation-for="LvtPassWord" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="LvtFullName" class="control-label"></label>
+                        <input asp-for="LvtFullName" class="form-control" />
+                        <span asp-validation-for="LvtFullName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="LvtEmail" class="control-label"></label>
+                        <input asp-for="LvtEmail" class="form-control" />
+                        <span asp-validation-for="LvtEmail" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="form-group">
+                <input type="submit" value="Cap nhap" class="btn btn-primary" />
+                <a asp-action="LvtIndex" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

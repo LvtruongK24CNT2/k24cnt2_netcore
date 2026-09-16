@@ -1,0 +1,53 @@
+@model LvtLesson08ModelsPart2.Models.LvtMember
+
+@{
+    ViewData["Title"] = "thong tin chi tiet thanh vien";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>LvtMember</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LvtUserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LvtUserName)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LvtPassWord)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LvtPassWord)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LvtFullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LvtFullName)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LvtEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LvtEmail)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="LvtEdit" asp-route-id="@Model?.LvtMemberId">Edit</a> |
+    <a asp-action="LvtIndex">Back to List</a>
+</div>
