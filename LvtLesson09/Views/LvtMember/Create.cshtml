@@ -1,0 +1,67 @@
+﻿@model LvtLesson09.Models.DataViewModels.LvtMemberRegister
+
+@{
+    ViewData["Title"] = "Thanh vien moi";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>LvtMemberRegister</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="LvtMemberId" class="control-label"></label>
+                <input asp-for="LvtMemberId" class="form-control" />
+                <span asp-validation-for="LvtMemberId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LvtUserName" class="control-label"></label>
+                <input asp-for="LvtUserName" class="form-control" />
+                <span asp-validation-for="LvtUserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LvtPassword" class="control-label"></label>
+                <input asp-for="LvtPassword" class="form-control" />
+                <span asp-validation-for="LvtPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LvtEmail" class="control-label"></label>
+                <input asp-for="LvtEmail" class="form-control" />
+                <span asp-validation-for="LvtEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LvtPhoneNumber" class="control-label"></label>
+                <input asp-for="LvtPhoneNumber" class="form-control" />
+                <span asp-validation-for="LvtPhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LvtFullName" class="control-label"></label>
+                <input asp-for="LvtFullName" class="form-control" />
+                <span asp-validation-for="LvtFullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LvtBirthday" class="control-label"></label>
+                <input asp-for="LvtBirthday" class="form-control" />
+                <span asp-validation-for="LvtBirthday" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

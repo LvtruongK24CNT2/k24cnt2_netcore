@@ -1,0 +1,77 @@
+﻿@model IEnumerable<LvtLesson09.Models.DataViewModels.LvtMemberRegister>
+
+@{
+    ViewData["Title"] = "Danh sach thanh vien";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtMemberId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LvtBirthday)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LvtMemberId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LvtUserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LvtPassword)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LvtEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LvtPhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LvtFullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LvtBirthday)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.LvtMemberId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.LvtMemberId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.LvtMemberId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
