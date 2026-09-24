@@ -1,0 +1,14 @@
+﻿@model IEnumerable<LvtLesson02Lab.Models.LvtCategorys>
+
+<h4 class="text-uppercase mb-3 fw-bold">DANH MỤC</h4>
+<div class="list-group">
+    @if (Model != null)
+    {
+        @foreach (var item in Model)
+        {
+            <a href="#" class="list-group-item list-group-item-action">
+                @item.LvtName
+            </a>
+        }
+    }
+</div>

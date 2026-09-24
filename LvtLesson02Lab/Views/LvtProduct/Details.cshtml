@@ -1,0 +1,34 @@
+﻿@model LvtLesson02Lab.Models.LvtProducts
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-4">
+    <a asp-action="Index" class="btn btn-secondary mb-3"> Quay lại danh sách</a>
+
+    <div class="row">
+        <div class="col-md-5">
+            <img src="@Model.LvtImages" class="img-fluid rounded border" alt="@Model.LvtName" />
+        </div>
+        <div class="col-md-7">
+            <h2>@Model.LvtName</h2>
+            <hr />
+            <p class="fs-4">
+                <del class="text-muted fs-6">Giá cũ: @Model.LvtPrice.ToString("N0") đ</del><br />
+                <strong class="text-danger">Giá khuyến mãi: @Model.LvtPriceSale?.ToString("N0") đ</strong>
+            </p>
+            <p><strong>Mã sản phẩm (ID):</strong> @Model.LvtId</p>
+            <p><strong>Mã danh mục:</strong> @Model.LvtCategoryId</p>
+            <p><strong>Ngày tạo:</strong> @Model.LvtCreatedAt?.ToString("dd/MM/yyyy HH:mm")</p>
+            <p><strong>Trạng thái:</strong> @(Model.LvtStatus ? "Đang kinh doanh" : "Ngừng kinh doanh")</p>
+
+            <div class="alert alert-info mt-3">
+                <h5>Mô tả sản phẩm:</h5>
+                <p>@Model.LvtDescription</p>
+            </div>
+
+            <button class="btn btn-primary btn-lg mt-2"> Thêm vào giỏ hàng</button>
+        </div>
+    </div>
+</div>
