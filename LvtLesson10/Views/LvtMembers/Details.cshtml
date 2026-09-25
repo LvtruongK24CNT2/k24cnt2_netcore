@@ -1,0 +1,59 @@
+﻿@model LvtLesson10.Models.LvtMember
+
+@{
+    ViewData["Title"] = "Chi tiết Thành viên";
+}
+
+<h1 class="my-3 text-info">Thông tin Chi tiết</h1>
+
+<div class="card col-md-8 shadow-sm">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-4">Mã Thành viên (ID):</dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.MemberId)
+            </dd>
+
+            <dt class="col-sm-4">Tài khoản (Username):</dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.LvtUserName)
+            </dd>
+
+            <dt class="col-sm-4">Mật khẩu:</dt>
+            <dd class="col-sm-8">******</dd>
+
+            <dt class="col-sm-4">Họ và Tên:</dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.LvtFullName)
+            </dd>
+
+            <dt class="col-sm-4">Email:</dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.LvtEmail)
+            </dd>
+
+            <dt class="col-sm-4">Số điện thoại:</dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.LvtPhone)
+            </dd>
+
+            <dt class="col-sm-4">Trạng thái:</dt>
+            <dd class="col-sm-8">
+                @(Model.LvtStatus == true ? "Hoạt động" : "Khóa")
+            </dd>
+        </dl>
+    </div>
+
+    <div class="card-footer">
+        <a asp-action="Edit"
+           asp-route-id="@Model?.MemberId"
+           class="btn btn-warning">
+            Chỉnh sửa
+        </a>
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            Quay lại danh sách
+        </a>
+    </div>
+</div>

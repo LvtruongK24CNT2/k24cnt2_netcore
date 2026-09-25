@@ -1,0 +1,86 @@
+@model IEnumerable<LvtLesson10.Models.LvtMember>
+
+@{
+    ViewData["Title"] = "Danh sách Thành viên";
+}
+
+<div class="container mt-4">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm mb-4" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>@TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold text-primary"><i class="bi bi-people-fill me-2"></i>Danh sách Thành viên</h2>
+        <a asp-action="Create" class="btn btn-success shadow-sm">
+            <i class="bi bi-plus-circle me-1"></i> Thêm mới
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Mã TV</th>
+                <th>Tài khoản</th>
+                <th>Họ và Tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Trạng thái</th>
+                <th class="text-center">Thao tác</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MemberId</td>
+                    <td>@item.LvtUserName</td>
+                    <td>@item.LvtFullName</td>
+                    <td>@item.LvtEmail</td>
+                    <td>@item.LvtPhone</td>
+
+                    <td>
+                        @if (item.LvtStatus == true)
+                        {
+                            <span class="badge bg-success">
+                                <i class="bi bi-star-fill"></i>
+                                Thành viên Tích cực (Đã đạt)
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">
+                                <i class="bi bi-star"></i>
+                                Chưa đạt thành tích
+                            </span>
+                        }
+                    </td>
+
+                    <td class="text-center">
+                        <a asp-action="Edit"
+                           asp-route-id="@item.MemberId"
+                           class="btn btn-sm btn-warning me-1 shadow-sm">
+                            <i class="bi bi-pencil-square me-1"></i>Sửa
+                        </a>
+
+                        <a asp-action="Details"
+                           asp-route-id="@item.MemberId"
+                           class="btn btn-sm btn-info text-white me-1 shadow-sm">
+                            <i class="bi bi-info-circle me-1"></i>Chi tiết
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@item.MemberId"
+                           class="btn btn-sm btn-danger shadow-sm">
+                            <i class="bi bi-trash me-1"></i>Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

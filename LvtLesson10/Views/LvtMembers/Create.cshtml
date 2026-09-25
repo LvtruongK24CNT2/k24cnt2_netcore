@@ -1,0 +1,103 @@
+﻿@model LvtLesson10.Models.LvtMember
+
+@{
+    ViewData["Title"] = "Thêm mới Thành viên";
+}
+
+<div class="container mt-4">
+    <h2>Thêm mới Thành viên</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create" method="post">
+
+                <!-- Hiển thị tất cả lỗi nếu dữ liệu không hợp lệ -->
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtUserName" class="form-label">
+                        Tài khoản (*)
+                    </label>
+                    <input asp-for="LvtUserName"
+                           class="form-control"
+                           required />
+                    <span asp-validation-for="LvtUserName"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtPassword" class="form-label">
+                        Mật khẩu (*)
+                    </label>
+                    <input asp-for="LvtPassword"
+                           type="password"
+                           class="form-control"
+                           required />
+                    <span asp-validation-for="LvtPassword"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtFullName" class="form-label">
+                        Họ và Tên
+                    </label>
+                    <input asp-for="LvtFullName"
+                           class="form-control" />
+                    <span asp-validation-for="LvtFullName"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtEmail" class="form-label">
+                        Email
+                    </label>
+                    <input asp-for="LvtEmail"
+                           type="email"
+                           class="form-control" />
+                    <span asp-validation-for="LvtEmail"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtPhone" class="form-label">
+                        Số điện thoại
+                    </label>
+                    <input asp-for="LvtPhone"
+                           class="form-control" />
+                    <span asp-validation-for="LvtPhone"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input class="form-check-input"
+                           asp-for="LvtStatus" />
+
+                    <label class="form-check-label"
+                           asp-for="LvtStatus">
+                        Kích hoạt tài khoản
+                    </label>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit"
+                            class="btn btn-success">
+                        Lưu / Thêm mới
+                    </button>
+
+                    <a asp-action="Index"
+                       class="btn btn-secondary ms-2">
+                        Hủy bỏ
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
