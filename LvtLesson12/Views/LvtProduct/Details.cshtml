@@ -1,0 +1,54 @@
+@model LvtLesson12.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2>Chi tiết sản phẩm</h2>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtId)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.LvtId)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtName)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.LvtName)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtPrice)</dt>
+            <dd class="col-sm-9">@Model.LvtPrice.ToString("N0") đ</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtSalePrice)</dt>
+            <dd class="col-sm-9">
+                @(Model.LvtSalePrice.HasValue
+                    ? Model.LvtSalePrice.Value.ToString("N0") + " đ"
+                    : "Không có")
+            </dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtStatus)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.LvtStatus)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtCreateDate)</dt>
+            <dd class="col-sm-9">@Model.LvtCreateDate.ToString("dd/MM/yyyy")</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtImages)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.LvtImages)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtCategoryId)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.LvtCategoryId)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtDescription)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.LvtDescription)</dd>
+        </dl>
+    </div>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.LvtId" class="btn btn-warning">
+            Chỉnh sửa
+        </a> |
+        <a asp-action="Index" class="btn btn-secondary">
+            Quay lại danh sách
+        </a>
+    </div>
+
+</div>

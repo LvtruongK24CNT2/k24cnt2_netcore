@@ -1,0 +1,79 @@
+@model LvtLesson12.Models.Product
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2>Chỉnh sửa sản phẩm</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" asp-for="LvtId" />
+
+                <div class="mb-3">
+                    <label asp-for="LvtName" class="control-label"></label>
+                    <input asp-for="LvtName" class="form-control" />
+                    <span asp-validation-for="LvtName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtPrice" class="control-label"></label>
+                    <input asp-for="LvtPrice" class="form-control" />
+                    <span asp-validation-for="LvtPrice" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtSalePrice" class="control-label"></label>
+                    <input asp-for="LvtSalePrice" class="form-control" />
+                    <span asp-validation-for="LvtSalePrice" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtStatus" class="control-label"></label>
+                    <input asp-for="LvtStatus" class="form-control" />
+                    <span asp-validation-for="LvtStatus" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtCreateDate" class="control-label"></label>
+                    <input asp-for="LvtCreateDate" class="form-control" />
+                    <span asp-validation-for="LvtCreateDate" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtImages" class="control-label"></label>
+                    <input asp-for="LvtImages" class="form-control" />
+                    <span asp-validation-for="LvtImages" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtCategoryId" class="control-label"></label>
+                    <input asp-for="LvtCategoryId" class="form-control" />
+                    <span asp-validation-for="LvtCategoryId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtDescription" class="control-label"></label>
+                    <textarea asp-for="LvtDescription" class="form-control"></textarea>
+                    <span asp-validation-for="LvtDescription" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

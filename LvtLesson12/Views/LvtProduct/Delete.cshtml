@@ -1,0 +1,33 @@
+@model LvtLesson12.Models.Product
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2>Xóa sản phẩm</h2>
+    <h3 class="text-danger">Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtId)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.LvtId)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtName)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.LvtName)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtPrice)</dt>
+            <dd class="col-sm-9">@Model.LvtPrice.ToString("N0") đ</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LvtStatus)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.LvtStatus)</dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="LvtId" />
+            <input type="submit" value="Xóa" class="btn btn-danger" /> |
+            <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+        </form>
+    </div>
+
+</div>

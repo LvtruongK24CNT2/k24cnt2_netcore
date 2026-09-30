@@ -1,0 +1,78 @@
+@model LvtLesson12.Models.Product
+
+@{
+    ViewData["Title"] = "Thêm mới sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2>Thêm mới sản phẩm</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <!-- QUAN TRỌNG: Thêm enctype="multipart/form-data" để upload được file -->
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtId" class="control-label"></label>
+                    <input asp-for="LvtId" class="form-control" />
+                    <span asp-validation-for="LvtId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtName" class="control-label"></label>
+                    <input asp-for="LvtName" class="form-control" />
+                    <span asp-validation-for="LvtName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtPrice" class="control-label"></label>
+                    <input asp-for="LvtPrice" class="form-control" />
+                    <span asp-validation-for="LvtPrice" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtSalePrice" class="control-label"></label>
+                    <input asp-for="LvtSalePrice" class="form-control" />
+                    <span asp-validation-for="LvtSalePrice" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtStatus" class="control-label"></label>
+                    <input asp-for="LvtStatus" class="form-control" />
+                    <span asp-validation-for="LvtStatus" class="text-danger"></span>
+                </div>
+
+                <!-- Chọn ảnh từ máy -->
+                <div class="mb-3">
+                    <label class="control-label">Chọn ảnh từ máy</label>
+                    <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtCategoryId" class="control-label"></label>
+                    <input asp-for="LvtCategoryId" class="form-control" />
+                    <span asp-validation-for="LvtCategoryId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LvtDescription" class="control-label"></label>
+                    <textarea asp-for="LvtDescription" class="form-control"></textarea>
+                    <span asp-validation-for="LvtDescription" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
